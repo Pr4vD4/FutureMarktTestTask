@@ -48,7 +48,7 @@
                     <div class="circle">
                         <img src="{{ asset('public/assets/img/phone.svg') }}" alt="">
                     </div>
-                    <div class="navbar-phone">
+                    <div class="navbar-phone" id="phone">
                         8-345-123-34-45
                     </div>
                 </div>

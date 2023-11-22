@@ -80,6 +80,7 @@ header:after {
     position: absolute;
     bottom: 0;
     right: -85px;
+    z-index: -1;
 }
 
 .header-mentor img {
@@ -363,11 +364,6 @@ header .header-main-content > .container {
     text-transform: lowercase;
 }
 
-@media (max-width: 1200px) {
-    .header-mentor {
-        z-index: -1;
-    }
-}
 
 @media (min-width: 580px) {
     .header-main-buttons-mobile {
@@ -435,6 +431,7 @@ header .header-main-content > .container {
     }
 
     .header-main-info {
+        width: 60%;
         height: 40px;
     }
 
