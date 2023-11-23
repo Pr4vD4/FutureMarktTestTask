@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Feedback;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class FeedbackController extends Controller
 {
@@ -42,6 +43,11 @@ class FeedbackController extends Controller
                 'agree.required' => 'Это обязательное поле',
             ]
         );
+
+        Mail::to('sam_samich_05@mail.ru')->send(new \App\Mail\Mail([
+            'name' => $validated['name'],
+            'phone' => $validated['phone']
+        ]));
 
         $feedback = Feedback::create([
                 'name' => $validated['name'],
