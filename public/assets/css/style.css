@@ -20,6 +20,10 @@
     padding: 0 15px !important;
 }
 
+.nav-link:hover {
+    color: rgba(255, 255, 255, 0.7)!important;
+}
+
 .circle {
     display: flex;
     justify-content: center;
