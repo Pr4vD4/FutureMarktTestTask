@@ -1,19 +1,8 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="{{ asset('public/assets/css/bootstrap.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('public/assets/css/style.css') }}">
-    <title>Test</title>
-</head>
-<body>
-<div class="wrapper">
+@extends('layout.app')
 
+@section('content')
     <header>
-        <nav class="navbar navbar-expand-lg">
+        <nav class="navbar navbar-expand-lg animate__animated animate__zoomIn">
             <div class="d-flex justify-content-between container mt-2 ">
                 <a class="navbar-brand" href="#"><img src="{{ asset('public/assets/img/logoFM.svg') }}"></a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
@@ -56,7 +45,7 @@
         </nav>
 
         <div class="header-main container d-flex">
-            <div class="header-main-content container d-flex flex-column justify-content-evenly">
+            <div class="header-main-content container d-flex flex-column justify-content-evenly animate__animated animate__fadeInLeftBig">
                 <div class="header-main-title container">
                     Создаю условия
                     для вашего успеха
@@ -113,7 +102,7 @@
                     </div>
                 </div>
             </div>
-            <div class="header-mentor">
+            <div class="header-mentor animate__animated animate__fadeInRightBig">
                 <img src="{{ asset('public/assets/img/mentor.png') }}" alt="" class="header-mentor-img">
             </div>
         </div>
@@ -138,9 +127,9 @@
                                 <input type="text" class="form-control @error('name') is-invalid @enderror" name="name" aria-describedby="emailHelp"
                                        placeholder="Имя" required>
                                 @error('name')
-                                    <div id="validationServerUsernameFeedback" class="invalid-feedback">
-                                        {{ $message }}
-                                    </div>
+                                <div id="validationServerUsernameFeedback" class="invalid-feedback">
+                                    {{ $message }}
+                                </div>
                                 @enderror
 
                             </div>
@@ -188,11 +177,8 @@
         </div>
 
     </header>
+@endsection
 
 
-</div>
-<script src="{{ asset('public/assets/js/index.js') }}"></script>
-<script src="{{ asset('public/assets/js/bootstrap.bundle.min.js') }}"></script>
 
-</body>
-</html>
+
