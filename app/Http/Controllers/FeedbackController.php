@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Jobs\MailJob;
 use App\Models\Feedback;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
@@ -44,15 +45,18 @@ class FeedbackController extends Controller
             ]
         );
 
-        Mail::to('mail1@mail.ru')->send(new \App\Mail\Mail([
+        MailJob::dispatchAfterResponse([
             'name' => $validated['name'],
-            'phone' => $validated['phone']
-        ]));
+            'phone' => $validated['phone'],
+            'email' => 'email1@mail.ru'
+        ]);
+        MailJob::dispatchAfterResponse([
+            'name' => $validated['name'],
+            'phone' => $validated['phone'],
+            'email' => 'email2@mail.ru'
+        ]);
 
-        Mail::to('mail2@mail.ru')->send(new \App\Mail\Mail([
-            'name' => $validated['name'],
-            'phone' => $validated['phone']
-        ]));
+//        Mail::to('mail2@mail.ru')->send(new \App\Mail\Mail());
 
         $feedback = Feedback::create([
                 'name' => $validated['name'],

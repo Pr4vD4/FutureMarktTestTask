@@ -38,14 +38,10 @@ class Mail extends Mailable
     {
         return new Content(
             view: 'mail.mail',
+            with: [
+                'content' => $this->content
+            ]
         );
-    }
-
-    public function build()
-    {
-        return $this->view('mail.mail', [
-            'content' => $this->content
-        ]);
     }
 
     /**
