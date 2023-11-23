@@ -44,7 +44,12 @@ class FeedbackController extends Controller
             ]
         );
 
-        Mail::to('sam_samich_05@mail.ru')->send(new \App\Mail\Mail([
+        Mail::to('mail1@mail.ru')->send(new \App\Mail\Mail([
+            'name' => $validated['name'],
+            'phone' => $validated['phone']
+        ]));
+
+        Mail::to('mail2@mail.ru')->send(new \App\Mail\Mail([
             'name' => $validated['name'],
             'phone' => $validated['phone']
         ]));
